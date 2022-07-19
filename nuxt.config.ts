@@ -84,6 +84,7 @@ export default {
 		"nuxt-purgecss",
 		"@nuxt/typescript-build",
 		"nuxt-font-loader",
+		"@nuxtjs/tailwindcss",
 	],
 	modules: [
 		"@nuxtjs/svg",
