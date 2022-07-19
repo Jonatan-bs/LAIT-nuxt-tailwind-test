@@ -1,3 +1,5 @@
+import { createClampClasses } from "./tailwindHelper";
+
 // Font sizes in rem
 const fontsizes = {
 	"2xs": "1.6",
@@ -23,42 +25,6 @@ const lineHeights = {
 	"4xl": "6.2",
 	"5xl": "8",
 };
-
-const defaultScreenSize = 1420;
-function remToVw(size) {
-	return (1000 * size) / defaultScreenSize + "vw";
-}
-
-function createClampClasses(object) {
-	const dynamicClasses = {};
-	let startSizeIndex = 0;
-	let endSizeIndex = 0;
-
-	for (const startSize in object) {
-		const startSizeValue = object[startSize];
-
-		for (const endSize in object) {
-			if (startSizeIndex > endSizeIndex) {
-				// Do nothing
-			} else if (endSize === startSize) {
-				dynamicClasses[startSize] = startSizeValue + "rem";
-			} else {
-				const endSizeValue = object[endSize];
-				dynamicClasses[
-					startSize + "-" + endSize
-				] = `clamp(${startSizeValue}rem,${remToVw(
-					endSizeValue
-				)},${endSizeValue}rem)`;
-			}
-			endSizeIndex++;
-		}
-		endSizeIndex = 0;
-
-		startSizeIndex++;
-	}
-
-	return dynamicClasses;
-}
 
 module.exports = {
 	corePlugins: {
