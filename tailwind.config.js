@@ -27,12 +27,6 @@ const lineHeights = {
 };
 
 module.exports = {
-	corePlugins: {
-		maxWidth: false,
-		minWidth: false,
-		width: false,
-		dropShadow: false,
-	},
 	theme: {
 		colors: {
 			// Base colors
@@ -67,7 +61,7 @@ module.exports = {
 			sm: "640px",
 			md: "768px",
 			lg: "1024px",
-			xl: "1280px",
+			xl: "1440px",
 		},
 		fontFamily: {
 			display: ["antenna-light", "sans-serif"],
@@ -101,4 +95,31 @@ module.exports = {
 		fontSize: createClampClasses(fontsizes),
 		lineHeight: createClampClasses(lineHeights),
 	},
+	corePlugins: {
+		container: false,
+	},
+	plugins: [
+		function ({ addComponents, theme }) {
+			addComponents({
+				".container-sm": {
+					maxWidth: theme("screens.sm"),
+				},
+			});
+			addComponents({
+				".container-md": {
+					maxWidth: theme("screens.md"),
+				},
+			});
+			addComponents({
+				".container-lg": {
+					maxWidth: theme("screens.lg"),
+				},
+			});
+			addComponents({
+				".container": {
+					maxWidth: theme("screens.xl"),
+				},
+			});
+		},
+	],
 };
