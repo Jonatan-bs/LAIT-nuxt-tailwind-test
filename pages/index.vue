@@ -1,6 +1,6 @@
 <template>
-	<div class="container mx-auto l-p-xxs">
-		<h1 class="c-mb-xl head">NUXT Tailwind test</h1>
+	<div class="container c-mx-auto l-p-xxs">
+		<h1 class="c-mb-xl">NUXT Tailwind test</h1>
 
 		<div class="c-mb-xxl">
 			<h2 class="text-xl font-display font-bold c-mb-m">Simple Grid</h2>

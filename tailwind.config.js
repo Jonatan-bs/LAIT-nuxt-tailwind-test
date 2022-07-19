@@ -8,6 +8,24 @@ const {
 } = require("./tailwindHelper.js");
 
 module.exports = {
+	corePlugins: [
+		"flex",
+		"flexDirection",
+		"flexWrap",
+		"alignItems",
+		"justifyItems",
+		"accessibility",
+		"fontWeight",
+		"backgroundColor",
+		"textColor",
+		"fontSize",
+		"textAlign",
+		"fontFamily",
+		"gridColumn",
+		"gridRow",
+		"gridRowStart",
+		"gridColumnStart",
+	],
 	theme: {
 		colors: {
 			// Base colors
@@ -101,12 +119,6 @@ module.exports = {
 			"4xl": "6.2",
 			"5xl": "8",
 		},
-	},
-	corePlugins: {
-		container: false,
-		fontSize: false,
-		spacing: false,
-		lineHeight: false,
 	},
 	plugins: [
 		spacingsPlugin,

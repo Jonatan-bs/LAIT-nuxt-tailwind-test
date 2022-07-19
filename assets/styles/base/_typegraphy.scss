@@ -3,6 +3,11 @@
 	// line-height: clamp();
 }
 
+@layer base {
+	body {
+		@apply font-display;
+	}
+}
 @layer components {
 	h1,
 	.headline-1,
@@ -14,7 +19,7 @@
 	.headline-4,
 	h5,
 	.headline-5 {
-		@apply font-bold;
+		@apply font-bold font-display;
 	}
 
 	h1,
