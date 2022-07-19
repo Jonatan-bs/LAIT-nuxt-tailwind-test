@@ -90,7 +90,7 @@ const fontsizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 		"fontSize"
 	);
 });
-const spacingsSizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
+const spacingsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 	[
 		{
 			prefix: "c-m",
@@ -235,7 +235,7 @@ const spacingsSizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 module.exports = {
 	customContainerPlugin,
 	mainGridPlugin,
-	spacingsSizesPlugin,
+	spacingsPlugin,
 	lineHeightsPlugin,
 	fontsizesPlugin,
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const {
-	spacingsSizesPlugin,
+	spacingsPlugin,
 	customContainerPlugin,
 	mainGridPlugin,
 	lineHeightsPlugin,
@@ -109,7 +109,7 @@ module.exports = {
 		lineHeight: false,
 	},
 	plugins: [
-		spacingsSizesPlugin,
+		spacingsPlugin,
 		customContainerPlugin,
 		mainGridPlugin,
 		lineHeightsPlugin,
