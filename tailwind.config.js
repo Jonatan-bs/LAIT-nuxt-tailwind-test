@@ -1,4 +1,5 @@
-import { createClampClasses } from "./tailwindHelper";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { createClampClasses } = require("./tailwindHelper.js");
 
 // Font sizes in rem
 const fontsizes = {
