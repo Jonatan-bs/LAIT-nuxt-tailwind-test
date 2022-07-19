@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto p-c-m">
+	<div class="container mx-auto l-p-xxs">
 		<h1
 			class="font-display font-bold c-mb-xl text-clamp text-sm-3xl text-lg-4xl leading-sm-2xs leading-clamp leading-lg-5xl"
 		>

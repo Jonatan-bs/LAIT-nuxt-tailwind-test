@@ -111,23 +111,23 @@ module.exports = {
 	},
 	plugins: [
 		// Dynamic fontSize classes
-		({ addComponents, theme }) =>
+		({ addUtilities, addComponents, theme }) =>
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				fontsizes,
 				"text",
 				"fontSize"
 			),
 		// Dynamic lineHeight classes
-		({ addComponents, theme }) =>
+		({ addUtilities, addComponents, theme }) =>
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				lineHeights,
 				"leading",
 				"lineHeight"
 			),
 		// Dynamic padding classes
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			[
 				{ prefix: "c-p", cssProperty: "padding" },
 				{ prefix: "c-pt", cssProperty: "paddingTop" },
@@ -136,14 +136,14 @@ module.exports = {
 				{ prefix: "c-pr", cssProperty: "paddingRight" },
 			].forEach((padding) => {
 				createDynamicClampClasses(
-					{ addComponents, theme },
+					{ addUtilities, addComponents, theme },
 					spacing.component,
 					padding.prefix,
 					padding.cssProperty
 				);
 			});
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			[
 				{ prefix: "l-p", cssProperty: "padding" },
 				{ prefix: "l-pt", cssProperty: "paddingTop" },
@@ -152,7 +152,7 @@ module.exports = {
 				{ prefix: "l-pr", cssProperty: "paddingRight" },
 			].forEach((padding) => {
 				createDynamicClampClasses(
-					{ addComponents, theme },
+					{ addUtilities, addComponents, theme },
 					spacing.layout,
 					padding.prefix,
 					padding.cssProperty
@@ -160,7 +160,7 @@ module.exports = {
 			});
 		},
 		// Dynamic margin classes
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			[
 				{ prefix: "c-m", cssProperty: "margin" },
 				{ prefix: "c-mt", cssProperty: "marginTop" },
@@ -169,14 +169,14 @@ module.exports = {
 				{ prefix: "c-mr", cssProperty: "marginRight" },
 			].forEach((margin) => {
 				createDynamicClampClasses(
-					{ addComponents, theme },
+					{ addUtilities, addComponents, theme },
 					spacing.component,
 					margin.prefix,
 					margin.cssProperty
 				);
 			});
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			[
 				{ prefix: "l-m", cssProperty: "margin" },
 				{ prefix: "l-mt", cssProperty: "marginTop" },
@@ -185,7 +185,7 @@ module.exports = {
 				{ prefix: "l-mr", cssProperty: "marginRight" },
 			].forEach((margin) => {
 				createDynamicClampClasses(
-					{ addComponents, theme },
+					{ addUtilities, addComponents, theme },
 					spacing.layout,
 					margin.prefix,
 					margin.cssProperty
@@ -193,49 +193,49 @@ module.exports = {
 			});
 		},
 		// Dynamic gap classes
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.component,
 				"c-gap",
 				"gap"
 			);
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.layout,
 				"l-gap",
 				"gap"
 			);
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.component,
 				"c-gap-x",
 				"columnGap"
 			);
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.layout,
 				"l-gap-x",
 				"columnGap"
 			);
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.component,
 				"c-gap-y",
 				"rowGap"
 			);
 		},
-		({ addComponents, theme }) => {
+		({ addUtilities, addComponents, theme }) => {
 			createDynamicClampClasses(
-				{ addComponents, theme },
+				{ addUtilities, addComponents, theme },
 				spacing.layout,
 				"l-gap-y",
 				"rowGap"
@@ -255,26 +255,22 @@ module.exports = {
 		},
 		// Custom container
 		function ({ addComponents, theme }) {
-			addComponents({
+			const containers = {
 				".container-sm": {
 					maxWidth: theme("screens.sm"),
 				},
-			});
-			addComponents({
 				".container-md": {
 					maxWidth: theme("screens.md"),
 				},
-			});
-			addComponents({
 				".container-lg": {
 					maxWidth: theme("screens.lg"),
 				},
-			});
-			addComponents({
 				".container": {
 					maxWidth: theme("screens.xl"),
 				},
-			});
+			};
+
+			addComponents(containers);
 		},
 	],
 };
