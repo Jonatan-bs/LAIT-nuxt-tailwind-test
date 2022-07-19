@@ -100,6 +100,16 @@ module.exports = {
 		container: false,
 	},
 	plugins: [
+		// Main grid
+		function ({ addComponents }) {
+			addComponents({
+				".main-grid": {
+					gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+					display: "grid",
+				},
+			});
+		},
+		// Custom container
 		function ({ addComponents, theme }) {
 			addComponents({
 				".container-sm": {
