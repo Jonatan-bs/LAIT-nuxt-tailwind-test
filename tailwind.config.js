@@ -89,7 +89,7 @@ module.exports = {
 			"4xl": "6.2",
 			"5xl": "8",
 		},
-		fontsizes: {
+		fontSizes: {
 			"2xs": "1.6",
 			xs: "1.8",
 			sm: "2",

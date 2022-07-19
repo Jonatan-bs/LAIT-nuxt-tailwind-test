@@ -85,7 +85,7 @@ const lineHeightsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 const fontsizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 	createDynamicClampClasses(
 		{ addUtilities, addComponents, theme },
-		theme("fontsizes"),
+		theme("fontSizes"),
 		"text",
 		"fontSize"
 	);
