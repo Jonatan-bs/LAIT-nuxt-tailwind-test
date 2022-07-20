@@ -5,7 +5,7 @@
 
 @layer base {
 	body {
-		@apply font-display;
+		// @apply font-display;
 	}
 }
 @layer components {
@@ -19,12 +19,12 @@
 	.headline-4,
 	h5,
 	.headline-5 {
-		@apply font-bold font-display;
+		// @apply font-bold font-display;
 	}
 
 	h1,
 	.headline-1 {
-		@apply text-clamp text-sm-2xl text-lg-3xl;
+		// @apply text-clamp text-sm-2xl text-lg-3xl;
 	}
 
 	h2,
