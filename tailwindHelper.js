@@ -5,44 +5,50 @@ function createDynamicClampClasses(
 	{ addComponents, addUtilities, theme },
 	obj,
 	prefix,
-	cssProperty
+	cssProperties
 ) {
-	addComponents({
-		[`.${prefix}-clamp`]: {
-			[cssProperty]: `
-				clamp(
-					calc(var(--${prefix}-min) * 1rem),
-					calc(((1000 * var(--${prefix}-max)) / ${theme("screens.xl").replace(
-				"px",
-				""
-			)}) * 1vw ),
-					calc(var(--${prefix}-max) * 1rem)
-				)`,
-		},
-	});
-	for (const fontsizeKey in obj) {
-		const fontsizeValue = obj[fontsizeKey];
-		if (fontsizeValue !== "auto") {
-			addUtilities({
-				[`.${prefix}-sm-${fontsizeKey}`]: {
-					[`--${prefix}-min`]: fontsizeValue,
-				},
-			});
-			addUtilities({
-				[`.${prefix}-lg-${fontsizeKey}`]: {
-					[`--${prefix}-max`]: fontsizeValue,
-				},
-			});
+	cssProperties.forEach((cssProperty) => {
+		addComponents({
+			[`.${prefix}-clamp`]: {
+				[cssProperty]: `
+					clamp(
+						calc(var(--${prefix}-min) * 1rem),
+						calc(((1000 * var(--${prefix}-max)) / ${theme("screens.xl").replace(
+					"px",
+					""
+				)}) * 1vw ),
+						calc(var(--${prefix}-max) * 1rem)
+						)`,
+			},
+		});
+
+		for (const fontsizeKey in obj) {
+			const fontsizeValue = obj[fontsizeKey];
+			if (fontsizeValue !== "auto") {
+				addUtilities({
+					[`.${prefix}-sm-${fontsizeKey}`]: {
+						[`--${prefix}-min`]: fontsizeValue,
+					},
+				});
+				addUtilities({
+					[`.${prefix}-lg-${fontsizeKey}`]: {
+						[`--${prefix}-max`]: fontsizeValue,
+					},
+				});
+			}
+
 			addUtilities(
 				{
 					[`.${prefix}-${fontsizeKey}`]: {
-						[cssProperty]: fontsizeValue + "rem",
+						[cssProperty]:
+							fontsizeValue +
+							(fontsizeValue === "auto" ? "" : "rem"),
 					},
 				},
 				["responsive", "hover"]
 			);
 		}
-	}
+	});
 }
 
 const customContainerPlugin = plugin(({ addComponents, theme }) => {
@@ -79,7 +85,7 @@ const lineHeightsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 		{ addUtilities, addComponents, theme },
 		theme("lineHeights"),
 		"leading",
-		"lineHeight"
+		["lineHeight"]
 	);
 });
 const fontsizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
@@ -87,147 +93,167 @@ const fontsizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 		{ addUtilities, addComponents, theme },
 		theme("fontSizes"),
 		"text",
-		"fontSize"
+		["fontSize"]
 	);
 });
 const spacingsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 	[
 		{
 			prefix: "c-m",
-			cssProperty: "margin",
+			cssProperties: ["margin"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-mt",
-			cssProperty: "marginTop",
+			cssProperties: ["marginTop"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-mb",
-			cssProperty: "marginBottom",
+			cssProperties: ["marginBottom"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-ml",
-			cssProperty: "marginLeft",
+			cssProperties: ["marginLeft"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-mr",
-			cssProperty: "marginRight",
-			sizes: theme("spacings.component"),
+			cssProperties: ["marginRight"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "l-m",
-			cssProperty: "margin",
+			cssProperties: ["margin"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-mt",
-			cssProperty: "marginTop",
+			cssProperties: ["marginTop"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-mb",
-			cssProperty: "marginBottom",
+			cssProperties: ["marginBottom"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-ml",
-			cssProperty: "marginLeft",
+			cssProperties: ["marginLeft"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-mr",
-			cssProperty: "marginRight",
-			sizes: theme("spacings.layout"),
+			cssProperties: ["marginRight"],
+			sizes: theme("spacing.layout"),
+		},
+		{
+			prefix: "l-mx",
+			cssProperties: ["marginRight", "marginLeft"],
+			sizes: theme("spacing.layout"),
+		},
+		{
+			prefix: "c-mx",
+			cssProperties: ["marginRight", "marginLeft"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-p",
-			cssProperty: "padding",
+			cssProperties: ["padding"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-pt",
-			cssProperty: "paddingTop",
+			cssProperties: ["paddingTop"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-pb",
-			cssProperty: "paddingBottom",
+			cssProperties: ["paddingBottom"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-pl",
-			cssProperty: "paddingLeft",
+			cssProperties: ["paddingLeft"],
 			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "c-pr",
-			cssProperty: "paddingRight",
-			sizes: theme("spacings.component"),
+			cssProperties: ["paddingRight"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "l-p",
-			cssProperty: "padding",
+			cssProperties: ["padding"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-pt",
-			cssProperty: "paddingTop",
+			cssProperties: ["paddingTop"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-pb",
-			cssProperty: "paddingBottom",
+			cssProperties: ["paddingBottom"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-pl",
-			cssProperty: "paddingLeft",
+			cssProperties: ["paddingLeft"],
 			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "l-pr",
-			cssProperty: "paddingRight",
-			sizes: theme("spacings.layout"),
+			cssProperties: ["paddingRight"],
+			sizes: theme("spacing.layout"),
+		},
+		{
+			prefix: "l-px",
+			cssProperties: ["paddingRight", "paddingLeft"],
+			sizes: theme("spacing.layout"),
+		},
+		{
+			prefix: "c-px",
+			cssProperties: ["paddingRight", "paddingLeft"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "l-gap",
-			cssProperty: "gap",
-			sizes: theme("spacings.layout"),
+			cssProperties: ["gap"],
+			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "c-gap",
-			cssProperty: "gap",
-			sizes: theme("spacings.component"),
+			cssProperties: ["gap"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "l-gap-x",
-			cssProperty: "columnGap",
-			sizes: theme("spacings.layout"),
+			cssProperties: ["columnGap"],
+			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "c-gap-x",
-			cssProperty: "columnGap",
-			sizes: theme("spacings.component"),
+			cssProperties: ["columnGap"],
+			sizes: theme("spacing.component"),
 		},
 		{
 			prefix: "l-gap-y",
-			cssProperty: "rowGap",
-			sizes: theme("spacings.layout"),
+			cssProperties: ["rowGap"],
+			sizes: theme("spacing.layout"),
 		},
 		{
 			prefix: "c-gap-y",
-			cssProperty: "rowGap",
-			sizes: theme("spacings.component"),
+			cssProperties: ["rowGap"],
+			sizes: theme("spacing.component"),
 		},
 	].forEach((utility) => {
 		createDynamicClampClasses(
 			{ addUtilities, addComponents, theme },
 			utility.sizes,
 			utility.prefix,
-			utility.cssProperty
+			utility.cssProperties
 		);
 	});
 });
