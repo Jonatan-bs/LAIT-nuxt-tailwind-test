@@ -1,12 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const {
-	spacingsPlugin,
-	customContainerPlugin,
-	mainGridPlugin,
-	lineHeightsPlugin,
-	fontsizesPlugin,
-} = require("./tailwindHelper.js");
-
 module.exports = {
 	corePlugins: [
 		"flex",
@@ -120,11 +111,5 @@ module.exports = {
 			"5xl": "8",
 		},
 	},
-	plugins: [
-		spacingsPlugin,
-		customContainerPlugin,
-		mainGridPlugin,
-		lineHeightsPlugin,
-		fontsizesPlugin,
-	],
+	plugins: [require("./tailwindHelper.js")],
 };

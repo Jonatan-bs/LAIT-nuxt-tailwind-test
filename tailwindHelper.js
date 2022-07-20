@@ -51,7 +51,7 @@ function createDynamicClampClasses(
 	});
 }
 
-const customContainerPlugin = plugin(({ addComponents, theme }) => {
+const addCustomContainer = ({ addComponents, theme }) => {
 	const containers = {
 		".container-sm": {
 			maxWidth: theme("screens.sm"),
@@ -67,9 +67,9 @@ const customContainerPlugin = plugin(({ addComponents, theme }) => {
 		},
 	};
 	addComponents(containers);
-});
+};
 
-const mainGridPlugin = plugin(({ addComponents, theme }) => {
+const addMainGrid = ({ addComponents, theme }) => {
 	addComponents({
 		".main-grid": {
 			columnGap: theme("spacing.layout.3xs") + "rem",
@@ -78,25 +78,25 @@ const mainGridPlugin = plugin(({ addComponents, theme }) => {
 			display: "grid",
 		},
 	});
-});
+};
 
-const lineHeightsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
+const addLineHeights = ({ addUtilities, addComponents, theme }) => {
 	createDynamicClampClasses(
 		{ addUtilities, addComponents, theme },
 		theme("lineHeights"),
 		"leading",
 		["lineHeight"]
 	);
-});
-const fontsizesPlugin = plugin(({ addUtilities, addComponents, theme }) => {
+};
+const addFontsizes = ({ addUtilities, addComponents, theme }) => {
 	createDynamicClampClasses(
 		{ addUtilities, addComponents, theme },
 		theme("fontSizes"),
 		"text",
 		["fontSize"]
 	);
-});
-const spacingsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
+};
+const addSpacings = ({ addUtilities, addComponents, theme }) => {
 	[
 		{
 			prefix: "c-m",
@@ -256,12 +256,12 @@ const spacingsPlugin = plugin(({ addUtilities, addComponents, theme }) => {
 			utility.cssProperties
 		);
 	});
-});
-
-module.exports = {
-	customContainerPlugin,
-	mainGridPlugin,
-	spacingsPlugin,
-	lineHeightsPlugin,
-	fontsizesPlugin,
 };
+
+module.exports = plugin((ctx) => {
+	addCustomContainer(ctx);
+	addMainGrid(ctx);
+	addSpacings(ctx);
+	addLineHeights(ctx);
+	addFontsizes(ctx);
+});
