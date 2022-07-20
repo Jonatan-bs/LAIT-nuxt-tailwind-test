@@ -161,29 +161,29 @@ export default {
 	/*
 	 ** build settings.
 	 */
-	build: {
-		cssSourceMap: process.env.NODE_ENV === "Development",
-		// build performance
-		minimize: true,
-		optimization: {
-			splitChunks: {
-				chunks: "async",
-				minSize: 20000,
-				minChunks: 1,
-				maxAsyncRequests: 30,
-				maxInitialRequests: 30,
-				enforceSizeThreshold: 50000,
-				cacheGroups: {
-					styles: {
-						name: "styles",
-						test: /\.(css|vue)$/,
-						chunks: "all",
-						enforce: true,
-					},
-				},
-			},
-		},
-	},
+	// build: {
+	// 	cssSourceMap: process.env.NODE_ENV === "Development",
+	// 	// build performance
+	// 	minimize: true,
+	// 	optimization: {
+	// 		splitChunks: {
+	// 			chunks: "async",
+	// 			minSize: 20000,
+	// 			minChunks: 1,
+	// 			maxAsyncRequests: 30,
+	// 			maxInitialRequests: 30,
+	// 			enforceSizeThreshold: 50000,
+	// 			cacheGroups: {
+	// 				styles: {
+	// 					name: "styles",
+	// 					test: /\.(css|vue)$/,
+	// 					chunks: "all",
+	// 					enforce: true,
+	// 				},
+	// 			},
+	// 		},
+	// 	},
+	// },
 
 	/*
 	 ** Font loader
