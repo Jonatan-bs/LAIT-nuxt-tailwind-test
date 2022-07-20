@@ -1,9 +1,8 @@
 <template>
 	<div class="container mx-auto l-p-xxs">
 		<nuxt-link to="/">custom</nuxt-link>
-		<h1 class="text-clamp font-display font-bold text-sm-2xl text-lg-3xl">
-			NUXT Tailwind default config
-		</h1>
+
+		<h1 class="font-display font-bold">NUXT Tailwind default config</h1>
 
 		<div class="mb-xxl">
 			<h2 class="text-xl font-display font-bold mb-m">Simple Grid</h2>
