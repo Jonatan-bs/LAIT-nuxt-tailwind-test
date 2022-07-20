@@ -1,4 +1,5 @@
-module.exports = {
+const useCustomConfig = true;
+const customConfig = {
 	corePlugins: [
 		"flex",
 		"flexDirection",
@@ -113,3 +114,5 @@ module.exports = {
 	},
 	plugins: [require("./tailwindHelper.js")],
 };
+
+module.exports = useCustomConfig ? customConfig : {};
