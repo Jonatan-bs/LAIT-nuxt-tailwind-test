@@ -80,12 +80,12 @@ function createDynamicClampClasses(
 }
 
 const addLineHeights = (ctx) => {
-	createDynamicClampClasses(ctx, ctx.theme("lineHeights"), "leading", [
+	createDynamicClampClasses(ctx, ctx.theme("lineHeightClamp"), "leading", [
 		"lineHeight",
 	]);
 };
 const addFontsizes = (ctx) => {
-	createDynamicClampClasses(ctx, ctx.theme("fontSizes"), "text", [
+	createDynamicClampClasses(ctx, ctx.theme("fontSizeClamp"), "text", [
 		"fontSize",
 	]);
 };
@@ -94,152 +94,152 @@ const addSpacings = (ctx) => {
 		{
 			prefix: "c-m",
 			cssProperties: ["margin"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-mt",
 			cssProperties: ["marginTop"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-mb",
 			cssProperties: ["marginBottom"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-ml",
 			cssProperties: ["marginLeft"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-mr",
 			cssProperties: ["marginRight"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "l-m",
 			cssProperties: ["margin"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-mt",
 			cssProperties: ["marginTop"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-mb",
 			cssProperties: ["marginBottom"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-ml",
 			cssProperties: ["marginLeft"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-mr",
 			cssProperties: ["marginRight"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-mx",
 			cssProperties: ["marginRight", "marginLeft"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "c-mx",
 			cssProperties: ["marginRight", "marginLeft"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-p",
 			cssProperties: ["padding"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-pt",
 			cssProperties: ["paddingTop"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-pb",
 			cssProperties: ["paddingBottom"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-pl",
 			cssProperties: ["paddingLeft"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "c-pr",
 			cssProperties: ["paddingRight"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "l-p",
 			cssProperties: ["padding"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-pt",
 			cssProperties: ["paddingTop"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-pb",
 			cssProperties: ["paddingBottom"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-pl",
 			cssProperties: ["paddingLeft"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-pr",
 			cssProperties: ["paddingRight"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "l-px",
 			cssProperties: ["paddingRight", "paddingLeft"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "c-px",
 			cssProperties: ["paddingRight", "paddingLeft"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "l-gap",
 			cssProperties: ["gap"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "c-gap",
 			cssProperties: ["gap"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "l-gap-x",
 			cssProperties: ["columnGap"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "c-gap-x",
 			cssProperties: ["columnGap"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 		{
 			prefix: "l-gap-y",
 			cssProperties: ["rowGap"],
-			sizes: ctx.theme("spacing.layout"),
+			sizes: ctx.theme("spacingClamp.layout"),
 		},
 		{
 			prefix: "c-gap-y",
 			cssProperties: ["rowGap"],
-			sizes: ctx.theme("spacing.component"),
+			sizes: ctx.theme("spacingClamp.component"),
 		},
 	].forEach((utility) => {
 		createDynamicClampClasses(

@@ -135,23 +135,10 @@ const defaultConfig = {
 };
 
 const customConfig = {
-	corePlugins: [
-		"flex",
-		"flexDirection",
-		"flexWrap",
-		"alignItems",
-		"justifyItems",
-		"accessibility",
-		"fontWeight",
-		"backgroundColor",
-		"textColor",
-		"textAlign",
-		"fontFamily",
-		"gridColumn",
-		"gridRow",
-		"gridRowStart",
-		"gridColumnStart",
-	],
+	corePlugins: {
+		fontSize: false,
+		container: false,
+	},
 	theme: {
 		colors: {
 			// Base colors
@@ -189,7 +176,8 @@ const customConfig = {
 			xl: "1440px",
 			DEFAULT: "1440px",
 		},
-		spacing: {
+		spacing: {}, // Hides default spacing utillities from intellisence
+		spacingClamp: {
 			component: {
 				reset: "0",
 				auto: "auto",
@@ -222,7 +210,7 @@ const customConfig = {
 			display: ["antenna-light", "sans-serif"],
 			body: ["antenna-black", "sans-serif"],
 		},
-		lineHeights: {
+		lineHeightClamp: {
 			"2xs": "1.6",
 			xs: "1.8",
 			sm: "2",
@@ -234,7 +222,8 @@ const customConfig = {
 			"4xl": "6.2",
 			"5xl": "8",
 		},
-		fontSizes: {
+		fontSize: {}, // Hides default text utillities from intellisence
+		fontSizeClamp: {
 			"2xs": "1.6",
 			xs: "1.8",
 			sm: "2",
