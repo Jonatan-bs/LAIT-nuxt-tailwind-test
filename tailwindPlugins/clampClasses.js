@@ -13,7 +13,7 @@ function createDynamicClampClasses(
 				[cssProperty]: `
 					clamp(
 						calc(var(--${prefix}-min) * 1rem),
-						calc(((1000 * var(--${prefix}-max)) / ${theme("screens.xl").replace(
+						calc(((1000 * var(--${prefix}-max)) / ${theme("screens.DEFAULT")?.replace(
 					"px",
 					""
 				)}) * 1vw ),
@@ -50,35 +50,6 @@ function createDynamicClampClasses(
 		}
 	});
 }
-
-const addCustomContainer = ({ addComponents, theme }) => {
-	const containers = {
-		".container-sm": {
-			maxWidth: theme("screens.sm"),
-		},
-		".container-md": {
-			maxWidth: theme("screens.md"),
-		},
-		".container-lg": {
-			maxWidth: theme("screens.lg"),
-		},
-		".container": {
-			maxWidth: theme("screens.xl"),
-		},
-	};
-	addComponents(containers);
-};
-
-const addMainGrid = ({ addComponents, theme }) => {
-	addComponents({
-		".main-grid": {
-			columnGap: theme("spacing.layout.3xs") + "rem",
-			rowGap: theme("spacing.layout.3xs") + "rem",
-			gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-			display: "grid",
-		},
-	});
-};
 
 const addLineHeights = ({ addUtilities, addComponents, theme }) => {
 	createDynamicClampClasses(
@@ -259,8 +230,6 @@ const addSpacings = ({ addUtilities, addComponents, theme }) => {
 };
 
 module.exports = plugin((ctx) => {
-	addCustomContainer(ctx);
-	addMainGrid(ctx);
 	addSpacings(ctx);
 	addLineHeights(ctx);
 	addFontsizes(ctx);

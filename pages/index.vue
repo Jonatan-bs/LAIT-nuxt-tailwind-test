@@ -1,5 +1,5 @@
 <template>
-	<div class="container c-mx-auto l-p-xxs">
+	<div class="container l-p-xxs">
 		<nuxt-link to="/default/">default</nuxt-link>
 		<h1
 			class="c-mb-xl text-clamp font-display font-bold text-sm-2xl text-lg-3xl"

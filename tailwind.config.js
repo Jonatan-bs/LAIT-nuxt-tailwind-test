@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const plugin = require("tailwindcss/plugin");
-
-const useCustomConfig = false;
+const useCustomConfig = true;
 
 function remToVw(rem) {
 	return (1000 * rem) / 1440 + "vw";
@@ -88,6 +85,7 @@ const defaultConfig = {
 			md: "768px",
 			lg: "1024px",
 			xl: "1440px",
+			DEFAULT: "1440px",
 		},
 		spacing: {
 			reset: "0",
@@ -120,23 +118,19 @@ const defaultConfig = {
 			display: ["antenna-light", "sans-serif"],
 			body: ["antenna-black", "sans-serif"],
 		},
+		mainGrid: {
+			colGap: "2rem",
+			rowGap: "2rem",
+			cols: 12,
+		},
+	},
+	corePlugins: {
+		container: false,
 	},
 	plugins: [
-		plugin(function ({ addVariant, e, postcss }) {
-			addVariant("hover", ({ container, separator }) => {
-				const hoverHover = postcss.atRule({
-					name: "media",
-					params: "(hover: hover) and (pointer: fine)",
-				});
-				hoverHover.append(container.nodes);
-				container.append(hoverHover);
-				hoverHover.walkRules((rule) => {
-					rule.selector = `.${e(
-						`hover${separator}${rule.selector.slice(1)}`
-					)}:hover`;
-				});
-			});
-		}),
+		require("./tailwindPlugins/mainGrid.js"),
+		require("./tailwindPlugins/fluidContainer.js"),
+		require("./tailwindPlugins/pointerHover.js"),
 	],
 };
 
@@ -194,6 +188,7 @@ const customConfig = {
 			md: "768px",
 			lg: "1024px",
 			xl: "1440px",
+			DEFAULT: "1440px",
 		},
 		spacing: {
 			component: {
@@ -252,8 +247,18 @@ const customConfig = {
 			"4xl": "6.2",
 			"5xl": "8",
 		},
+		mainGrid: {
+			colGap: "2rem",
+			rowGap: "2rem",
+			cols: 12,
+		},
 	},
-	plugins: [require("./tailwindHelper.js")],
+	plugins: [
+		require("./tailwindPlugins/clampClasses.js"),
+		require("./tailwindPlugins/mainGrid.js"),
+		require("./tailwindPlugins/fluidContainer.js"),
+		require("./tailwindPlugins/pointerHover.js"),
+	],
 };
 
 module.exports = useCustomConfig ? customConfig : defaultConfig;
