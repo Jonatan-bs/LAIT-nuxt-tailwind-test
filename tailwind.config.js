@@ -145,7 +145,6 @@ const customConfig = {
 		"fontWeight",
 		"backgroundColor",
 		"textColor",
-		"fontSize",
 		"textAlign",
 		"fontFamily",
 		"gridColumn",

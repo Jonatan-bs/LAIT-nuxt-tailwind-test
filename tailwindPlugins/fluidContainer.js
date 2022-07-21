@@ -10,6 +10,7 @@ module.exports = plugin(function ({ matchUtilities, theme }) {
 						theme("container.center") === false ? null : "auto",
 					marginRight:
 						theme("container.center") === false ? null : "auto",
+					boxSizing: "border-box",
 				};
 			},
 		},

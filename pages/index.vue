@@ -2,7 +2,7 @@
 	<div class="container l-p-xxs">
 		<nuxt-link to="/default/">default</nuxt-link>
 		<h1
-			class="c-mb-xl text-clamp font-display font-bold text-sm-2xl text-lg-3xl"
+			class="c-mb-xs text-clamp font-display font-bold text-sm-sm text-lg-3xl"
 		>
 			NUXT Tailwind custom config
 		</h1>
